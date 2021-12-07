@@ -25,6 +25,8 @@ public class CompanyRepository {
         companies.add(new Company(1, "Brian Dream Company",  employeesInCompany1));
         companies.add(new Company(2, "Company A", employeesInCompany2));
         companies.add(new Company(3, "Company B", employeesInCompany3));
+        companies.add(new Company(4, "Poor Company", new ArrayList<>()));
+        companies.add(new Company(5, "Empty Company", null));
     }
 
     public List<Company> findAll() {
@@ -38,6 +40,9 @@ public class CompanyRepository {
     }
 
     public List<Employee> findEmployeesByCompanyId(int id) {
-        return null;
+        return companies.stream().filter(company -> company.getId().equals(id))
+                .findFirst()
+                .orElseThrow(NoCompanyFoundException::new)
+                .getEmployees();
     }
 }
