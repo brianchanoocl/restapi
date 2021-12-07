@@ -55,6 +55,12 @@ public class CompanyRepository {
     }
 
     public Company create(Company company) {
-        return null;
+        Integer nextId = companies.stream()
+                .mapToInt(Company::getId)
+                .max()
+                .orElse(0) + 1;
+        company.setId(nextId);
+        companies.add(company);
+        return company;
     }
 }
