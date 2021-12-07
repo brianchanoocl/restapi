@@ -22,7 +22,9 @@ public class CompanyController {
     }
 
     @GetMapping("/{id}")
-    public Company getAllCompanies(@PathVariable int id) {
+    public Company getCompanyById(@PathVariable int id) {
         return companyRepository.findById(id);
     }
+
+    
 }

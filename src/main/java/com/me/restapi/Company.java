@@ -3,17 +3,17 @@ package com.me.restapi;
 import java.util.List;
 
 public class Company {
-    private int id;
+    private Integer id;
     private String companyName;
     private List<Employee> employees;
 
-    public Company(int id, String companyName, List<Employee> employees) {
+    public Company(Integer id, String companyName, List<Employee> employees) {
         this.id = id;
         this.companyName = companyName;
         this.employees = employees;
     }
 
-    public int getId() {
+    public Integer getId() {
         return id;
     }
 

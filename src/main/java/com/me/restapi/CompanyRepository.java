@@ -32,6 +32,8 @@ public class CompanyRepository {
     }
 
     public Company findById(int id) {
-        return null;
+        return companies.stream().filter(company -> company.getId().equals(id))
+                .findFirst()
+                .orElseThrow(NoCompanyFoundException::new);
     }
 }
