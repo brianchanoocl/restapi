@@ -50,5 +50,9 @@ public class CompanyController {
         return companyRepository.save(id, company);
     }
 
-
+    @ResponseStatus(code = HttpStatus.NO_CONTENT)
+    @DeleteMapping("/{id}")
+    public Company deleteCompany(@PathVariable Integer id) {
+        return companyRepository.delete(id);
+    }
 }

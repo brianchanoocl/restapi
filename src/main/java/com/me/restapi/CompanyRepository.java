@@ -70,4 +70,8 @@ public class CompanyRepository {
         companies.add(updatedCompany);
         return updatedCompany;
     }
+
+    public Company delete(Integer id) {
+        return null;
+    }
 }
