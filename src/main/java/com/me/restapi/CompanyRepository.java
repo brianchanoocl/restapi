@@ -45,4 +45,8 @@ public class CompanyRepository {
                 .orElseThrow(NoCompanyFoundException::new)
                 .getEmployees();
     }
+
+    public List<Company> findByPage(Integer page, Integer pageSize) {
+        return null;
+    }
 }
