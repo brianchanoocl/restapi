@@ -38,7 +38,7 @@ public class EmployeeController {
     @ResponseStatus(code = HttpStatus.CREATED)
     @PostMapping
     public Employee createEmployee(@RequestBody Employee employee) {
-        return employeeRepository.create(employee);
+        return emloyeeRepository.create(employee);p
     }
 
     @PutMapping("/{id}")
