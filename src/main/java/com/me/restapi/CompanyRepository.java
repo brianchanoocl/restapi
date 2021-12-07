@@ -72,6 +72,8 @@ public class CompanyRepository {
     }
 
     public Company delete(Integer id) {
-        return null;
+        Company company = findById(id);
+        companies.remove(company);
+        return company;
     }
 }
