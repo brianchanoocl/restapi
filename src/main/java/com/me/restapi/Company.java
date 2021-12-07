@@ -4,12 +4,12 @@ import java.util.List;
 
 public class Company {
     private Integer id;
-    private String companyName;
+    private String name;
     private List<Employee> employees;
 
-    public Company(Integer id, String companyName, List<Employee> employees) {
+    public Company(Integer id, String name, List<Employee> employees) {
         this.id = id;
-        this.companyName = companyName;
+        this.name = name;
         this.employees = employees;
     }
 
@@ -21,12 +21,12 @@ public class Company {
         this.id = id;
     }
 
-    public String getCompanyName() {
-        return companyName;
+    public String getName() {
+        return name;
     }
 
-    public void setCompanyName(String companyName) {
-        this.companyName = companyName;
+    public void setName(String name) {
+        this.name = name;
     }
 
     public List<Employee> getEmployees() {

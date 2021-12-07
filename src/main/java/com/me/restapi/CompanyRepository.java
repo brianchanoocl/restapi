@@ -63,4 +63,8 @@ public class CompanyRepository {
         companies.add(company);
         return company;
     }
+
+    public Company save(Integer id, Company company) {
+        return null;
+    }
 }
