@@ -10,8 +10,8 @@ package com.me.restapi;
         mockMvc.perform(MockMvcRequestBuilders.get("/employees").param("page", "1").param("pageSize", "3"))
 */
 
-import com.me.restapi.Employee;
-import com.me.restapi.EmployeeRepository;
+import com.me.restapi.controller.EmployeeRepository;
+import com.me.restapi.entity.Employee;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,13 +20,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.http.MediaType;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
-import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
 
-
-import javax.security.auth.message.callback.PrivateKeyCallback;
-import java.util.List;
-import java.util.stream.Collectors;
-import java.util.stream.Stream;
 
 import static org.hamcrest.Matchers.*;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;

@@ -1,4 +1,4 @@
-package com.me.restapi;
+package com.me.restapi.entity;
 
 import java.util.List;
 
