@@ -18,6 +18,16 @@ public class EmployeeService {
     }
 
     public Employee edit(Integer id, Employee updatedEmployee) {
-        return null;
+        Employee employee = employeeRepository.findById(id);
+
+        if(updatedEmployee.getAge() != null) {
+            employee.setAge(updatedEmployee.getAge());
+        }
+
+        if(updatedEmployee.getSalary() != null) {
+            employee.setSalary(updatedEmployee.getSalary());
+        }
+
+        return employeeRepository.save(id, employee);
     }
 }

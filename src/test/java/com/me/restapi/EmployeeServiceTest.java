@@ -12,11 +12,12 @@ import java.util.List;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.BDDMockito.given;
+import static org.mockito.Mockito.verify;
 
 @ExtendWith(SpringExtension.class)
 public class EmployeeServiceTest {
     @Mock
-    EmployeeRepository employeeRepository;
+    EmployeeRepository mockEmployeeRepository;
     @InjectMocks
     EmployeeService employeeService;
 
@@ -25,7 +26,7 @@ public class EmployeeServiceTest {
         //given
         List<Employee> employees = new ArrayList<>();
         employees.add(new Employee(1, "Brian", 18, "male", 1000));
-        given(employeeRepository.findAll())
+        given(mockEmployeeRepository.findAll())
                 .willReturn(employees);
 
         //when
@@ -40,17 +41,18 @@ public class EmployeeServiceTest {
         //given
         Employee employee = new Employee(1, "Brian", 18, "male", 1000);
         Employee updatedEmployee = new Employee(1, "Brian", 27, "male", 9999);
-        given(employeeRepository.findById(any()))
+        given(mockEmployeeRepository.findById(any()))
                 .willReturn(employee);
         employee.setAge(updatedEmployee.getAge());
         employee.setSalary(updatedEmployee.getSalary());
-        given(employeeRepository.save(any(), any(Employee.class)))
+        given(mockEmployeeRepository.save(any(), any(Employee.class)))
                 .willReturn(employee);
 
         //when
         Employee actual = employeeService.edit(employee.getId(), updatedEmployee);
 
         //then
+        verify(mockEmployeeRepository).save(employee.getId(), employee);
         assertEquals(employee, actual);
     }
 
