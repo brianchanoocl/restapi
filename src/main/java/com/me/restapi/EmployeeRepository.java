@@ -64,4 +64,8 @@ public class EmployeeRepository {
         employees.remove(employee);
         return null;
     }
+
+    public void clearAll() {
+        employees.clear();
+    }
 }
